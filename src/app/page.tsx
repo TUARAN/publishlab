@@ -7,14 +7,9 @@ import {
   BookOpen,
   Sparkles,
   Pen,
-  Languages,
-  FileCheck,
   Search,
-  Star,
   Share2,
-  BarChart3,
   ArrowRight,
-  Play,
   CheckCircle2,
 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
@@ -33,73 +28,139 @@ const stagger = {
 const coreFeatures = [
   {
     icon: Bot,
-    title: "AI 写作助手",
-    description: "智能生成文章、改写润色、翻译适配，支持 20+ 内容类型",
+    title: "变现型 AI 写作",
+    description: "围绕成交目标生成选题、大纲、正文和 CTA，不只写得快，更要卖得动",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
   },
   {
     icon: Users,
-    title: "实时协作",
-    description: "多人同时编辑，评论批注，版本对比，像 Google Docs 一样流畅",
+    title: "协作交付",
+    description: "和编辑、设计、运营并行推进，缩短从草稿到上架的交付周期",
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
   {
     icon: BookOpen,
-    title: "电子书出版",
-    description: "专业排版，自动生成目录，导出 EPUB/PDF，直连各大出版平台",
+    title: "多平台发布",
+    description: "一键导出小册、长文和课程素材，适配知识星球、小报童等分发渠道",
     color: "text-pink-500",
     bg: "bg-pink-500/10",
   },
 ];
 
+const monetizationPaths = [
+  {
+    icon: Search,
+    title: "新手起步：免费引流小册",
+    description: "先做 1 本免费小册验证选题，建立首批种子用户和私域线索。",
+    cta: "查看调研数据",
+    href: "/research",
+  },
+  {
+    icon: Pen,
+    title: "进阶成交：9.9-99 元付费产品",
+    description: "把高频问题做成结构化小册或轻课程，跑通第一次真实成交。",
+    cta: "查看变现工作流",
+    href: "/monetize",
+  },
+  {
+    icon: Share2,
+    title: "规模放大：内容矩阵复用",
+    description: "把一份内容拆成图文、短内容和课程素材，持续复用提升 ROI。",
+    cta: "开始变现",
+    href: "/signup",
+  },
+];
+
 const showcases = [
   {
-    title: "AI 驱动，让写作不再困难",
+    title: "先找能卖的题，再开始写",
     description:
-      "输入主题或大纲，AI 即刻生成高质量文章。支持续写、改写、翻译和语法纠错，让每一段文字都恰到好处。",
-    features: ["智能续写与全文生成", "多风格改写", "50+ 语言翻译", "语法与拼写纠错"],
+      "从搜索趋势和用户痛点出发，先判断有没有付费意愿，再生成可成交的标题、大纲和落地结构。",
+    features: ["选题热度分析", "用户痛点聚类", "标题与卖点生成", "章节结构模板"],
     icon: Sparkles,
   },
   {
-    title: "团队协作，高效无缝",
+    title: "把写作流程拆成可交付节点",
     description:
-      "邀请团队成员加入文档，实时看到彼此的光标和编辑。行内评论、版本历史和任务分配，让协作像对话一样自然。",
+      "用统一模板推进选题、写作、配图、排版和审核，减少返工，让每次发布都能复用经验。",
     features: ["多人实时同步编辑", "行内评论与讨论串", "完整版本历史", "任务分配与追踪"],
     icon: Users,
   },
   {
-    title: "从手稿到出版，一站搞定",
+    title: "一次创作，多渠道分发成交",
     description:
-      "从创作到排版，从封面设计到多平台发布。PublishLab 让每个人都能成为出版者，无需专业排版技能。",
-    features: ["20+ 排版模板", "AI 封面生成", "EPUB/PDF/MOBI 导出", "直连出版平台"],
+      "写完后自动整理为适配不同平台的交付版本，让内容资产持续复用、持续带来收入。",
+    features: ["小册与课程模板", "封面和配图生成", "EPUB/PDF 导出", "多平台发布清单"],
     icon: BookOpen,
   },
 ];
 
 const stats = [
-  { value: "50K+", label: "创作者" },
-  { value: "1M+", label: "篇文章" },
-  { value: "10K+", label: "本电子书" },
-  { value: "99.9%", label: "可用性" },
+  { value: "10K+", label: "创作者在用" },
+  { value: "6 步", label: "标准变现流程" },
+  { value: "4 周", label: "最小启动周期" },
+  { value: "3 条", label: "主流变现路径" },
 ];
 
 const testimonials = [
   {
-    quote: "PublishLab 让我的写作效率提升了 3 倍。AI 续写功能帮我突破了无数次写作瓶颈。",
-    name: "李明",
-    role: "自由撰稿人",
+    quote: "以前总在打磨内容却卖不出去。现在先跑选题再写，第一本小册上线当周就出了第一单。",
+    name: "周航",
+    role: "独立创作者",
   },
   {
-    quote: "团队协作功能太棒了，我们 5 个编辑同时修改一篇长文，完全没有冲突。",
-    name: "王芳",
-    role: "内容团队主编",
+    quote: "我们把周更文章改成产品化交付，沉淀成可复用模板后，内容团队的成交效率明显更稳。",
+    name: "刘敏",
+    role: "内容团队负责人",
   },
   {
-    quote: "用 PublishLab 出版了我的第一本电子书，从写作到上架只花了两周。",
-    name: "陈志远",
-    role: "独立作者",
+    quote: "最有价值的是完整 SOP，不再靠灵感硬写，而是按流程做出能卖的内容。",
+    name: "陈哲",
+    role: "知识产品作者",
+  },
+];
+
+const caseStudies = [
+  {
+    title: "技术小册",
+    niche: "AI 提效 / 编程",
+    offer: "¥19.9 入门小册 + ¥99 系列课",
+    timeline: "3 周完成从 0 到首单",
+    result: "首月收入区间：¥2,000 - ¥8,000",
+  },
+  {
+    title: "职场写作",
+    niche: "简历 / 汇报 / 晋升",
+    offer: "¥29 模板包 + ¥199 陪跑营",
+    timeline: "4 周形成稳定转化",
+    result: "首月收入区间：¥5,000 - ¥20,000",
+  },
+  {
+    title: "知识型社群",
+    niche: "副业 / 个人成长",
+    offer: "免费手册引流 + ¥299 社群服务",
+    timeline: "6 周跑通复购闭环",
+    result: "季度收入区间：¥20,000 - ¥80,000",
+  },
+];
+
+const quickStartChecklist = [
+  {
+    step: "01",
+    title: "选一个能卖的题",
+    description: "先选你熟悉且有明确需求的细分题目，避免一开始就做大而泛的主题。",
+  },
+  {
+    step: "02",
+    title: "生成第一本小册",
+    description: "按模板产出大纲和正文，目标是本周内完成最小可交付版本。",
+  },
+  {
+    step: "03",
+    title: "发布并拿到首单",
+    description: "优先发布到最熟悉的平台，观察转化并迭代下一版内容。",
   },
 ];
 
@@ -118,23 +179,23 @@ export default function HomePage() {
             <motion.div variants={fadeUp}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm text-primary">
                 <Sparkles size={14} />
-                AI 驱动的下一代写作平台
+                写作变现工作台
               </div>
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                用 AI 释放你的
+                把你的写作变成
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  创作力
+                  持续收入
                 </span>
               </h1>
               <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-                从灵感到出版，PublishLab 为作家、博主和出版者提供智能写作、实时协作和一键出版的完整工具链。
+                从选题、写作到发布与成交，PublishLab 帮你把内容做成可复制的变现产品，而不只是写完一篇文章。
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button href="/signup" size="lg">
-                  免费开始写作 <ArrowRight size={16} />
+                  开始变现 <ArrowRight size={16} />
                 </Button>
-                <Button href="#demo" variant="secondary" size="lg">
-                  <Play size={16} /> 观看演示
+                <Button href="#paths" variant="secondary" size="lg">
+                  查看 3 条变现路径
                 </Button>
               </div>
               <p className="mt-4 text-sm text-muted-foreground">
@@ -179,6 +240,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quick Start Checklist */}
+      <Section className="!pt-10">
+        <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-primary">30 秒起步</p>
+              <h2 className="mt-1 text-2xl font-bold text-foreground sm:text-3xl">
+                写作变现 checklist
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                不用准备一整套系统，先跑通第一轮就会清晰很多。
+              </p>
+            </div>
+            <Button href="/signup">
+              开始变现 <ArrowRight size={16} />
+            </Button>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {quickStartChecklist.map((item) => (
+              <Card key={item.step}>
+                <div className="inline-flex rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                  Step {item.step}
+                </div>
+                <h3 className="mt-3 text-base font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Trust Bar */}
       <Section className="!py-10">
         <p className="text-center text-sm font-medium text-muted-foreground">
@@ -196,8 +288,8 @@ export default function HomePage() {
       {/* Core Features */}
       <Section>
         <SectionHeader
-          title="一站式创作工具链"
-          subtitle="从写作到出版，PublishLab 覆盖内容创作的每一个环节"
+          title="一站式写作变现工具链"
+          subtitle="从内容生产到成交转化，核心环节一次配齐"
         />
         <motion.div
           initial="hidden"
@@ -216,6 +308,36 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </Section>
+
+      {/* Monetization Paths */}
+      <Section id="paths" className="bg-muted">
+        <SectionHeader
+          title="3 条写作变现路径"
+          subtitle="按你的阶段选择起点：先跑通，再放大"
+        />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="grid gap-6 md:grid-cols-3"
+        >
+          {monetizationPaths.map((path) => (
+            <motion.div key={path.title} variants={fadeUp}>
+              <Card className="flex h-full flex-col">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                  <path.icon size={22} className="text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">{path.title}</h3>
+                <p className="mt-2 flex-1 text-sm text-muted-foreground">{path.description}</p>
+                <Button href={path.href} variant="secondary" className="mt-5">
+                  {path.cta} <ArrowRight size={16} />
+                </Button>
               </Card>
             </motion.div>
           ))}
@@ -279,11 +401,42 @@ export default function HomePage() {
         </motion.div>
       </Section>
 
+      {/* Case Studies */}
+      <Section>
+        <SectionHeader
+          title="变现案例参考"
+          subtitle="不同阶段创作者的真实变现路径样本"
+        />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="grid gap-6 md:grid-cols-3"
+        >
+          {caseStudies.map((item) => (
+            <motion.div key={item.title} variants={fadeUp}>
+              <Card className="h-full">
+                <div className="text-sm font-semibold text-primary">{item.title}</div>
+                <h3 className="mt-2 text-lg font-bold text-foreground">{item.offer}</h3>
+                <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  <p>领域：{item.niche}</p>
+                  <p>周期：{item.timeline}</p>
+                </div>
+                <div className="mt-5 rounded-lg bg-primary/10 px-3 py-2 text-sm font-medium text-primary">
+                  {item.result}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </Section>
+
       {/* Testimonials */}
       <Section className="bg-muted">
         <SectionHeader
-          title="听听创作者们怎么说"
-          subtitle="来自全球创作者的真实反馈"
+          title="他们如何用写作拿到第一笔收入"
+          subtitle="来自真实创作者的变现反馈"
         />
         <motion.div
           initial="hidden"
@@ -314,9 +467,9 @@ export default function HomePage() {
       {/* CTA Banner */}
       <Section>
         <div className="rounded-2xl bg-gradient-to-r from-primary to-primary-dark px-8 py-16 text-center text-white">
-          <h2 className="text-3xl font-bold sm:text-4xl">准备好开始你的创作之旅了吗？</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl">准备把内容变成可成交的产品了吗？</h2>
           <p className="mt-4 text-lg text-white/80">
-            加入 50,000+ 创作者，用 AI 提升你的写作效率
+            从第一本小册开始，跑通你的写作变现闭环
           </p>
           <div className="mt-8">
             <Button
@@ -324,7 +477,7 @@ export default function HomePage() {
               size="lg"
               className="bg-white text-primary hover:bg-white/90"
             >
-              免费开始写作 <ArrowRight size={16} />
+              开始变现 <ArrowRight size={16} />
             </Button>
           </div>
         </div>

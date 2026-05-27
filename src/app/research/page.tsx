@@ -1146,7 +1146,7 @@ export default function ResearchPage() {
               variant="ghost"
               className="border border-white/40 text-white hover:bg-white/10"
             >
-              免费开始
+              开始变现
             </Button>
           </div>
         </div>

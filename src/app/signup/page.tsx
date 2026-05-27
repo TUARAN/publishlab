@@ -37,12 +37,12 @@ export default function SignupPage() {
     if (result?.error) {
       setError("注册失败，请重试");
     } else {
-      window.location.href = "/";
+      window.location.href = "/monetize";
     }
   };
 
   const handleOAuthLogin = (provider: string) => {
-    signIn(provider, { callbackUrl: "/" });
+    signIn(provider, { callbackUrl: "/monetize" });
   };
 
   return (
@@ -56,7 +56,7 @@ export default function SignupPage() {
           </Link>
           <h1 className="mt-4 text-2xl font-bold text-foreground">创建你的账号</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            免费开始，开启你的 AI 创作之旅
+            从第一本小册开始，跑通你的写作变现闭环
           </p>
         </div>
 

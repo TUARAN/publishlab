@@ -8,23 +8,23 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "PublishLab - AI 写作与数字出版平台",
+    default: "PublishLab - 写作变现平台",
     template: "%s | PublishLab",
   },
   description:
-    "用 AI 释放创作力。PublishLab 提供智能写作、实时协作和一键出版工具，助你从灵感到出版。",
+    "把写作变成收入。PublishLab 提供从选题、写作到发布和变现的完整工作流，帮助创作者更快跑通第一笔收入。",
   openGraph: {
     type: "website",
     siteName: "PublishLab",
-    title: "PublishLab - AI 写作与数字出版平台",
+    title: "PublishLab - 写作变现平台",
     description:
-      "用 AI 释放创作力。PublishLab 提供智能写作、实时协作和一键出版工具，助你从灵感到出版。",
+      "把写作变成收入。PublishLab 提供从选题、写作到发布和变现的完整工作流，帮助创作者更快跑通第一笔收入。",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PublishLab - AI 写作与数字出版平台",
+    title: "PublishLab - 写作变现平台",
     description:
-      "用 AI 释放创作力。PublishLab 提供智能写作、实时协作和一键出版工具，助你从灵感到出版。",
+      "把写作变成收入。PublishLab 提供从选题、写作到发布和变现的完整工作流，帮助创作者更快跑通第一笔收入。",
   },
 };
 

@@ -28,12 +28,12 @@ export default function LoginPage() {
     if (result?.error) {
       setError("邮箱或密码错误，请重试");
     } else {
-      window.location.href = "/";
+      window.location.href = "/monetize";
     }
   };
 
   const handleOAuthLogin = (provider: string) => {
-    signIn(provider, { callbackUrl: "/" });
+    signIn(provider, { callbackUrl: "/monetize" });
   };
 
   return (
@@ -47,7 +47,7 @@ export default function LoginPage() {
           </Link>
           <h1 className="mt-4 text-2xl font-bold text-foreground">欢迎回来</h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            登录你的账号，继续创作之旅
+            登录你的账号，继续推进写作变现
           </p>
         </div>
 

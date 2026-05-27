@@ -9,11 +9,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "首页", href: "/" },
+  { label: "变现", href: "/monetize" },
+  { label: "调研", href: "/research" },
+  { label: "定价", href: "/pricing" },
   { label: "功能", href: "/features" },
   { label: "协作", href: "/collaboration" },
   { label: "电子书", href: "/ebook" },
-  { label: "变现", href: "/monetize" },
-  { label: "调研", href: "/research" },
 ];
 
 export function Header() {
@@ -142,7 +143,7 @@ export function Header() {
                 href="/signup"
                 className="hidden rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90 md:inline-block"
               >
-                免费开始
+                开始变现
               </Link>
             </>
           )}
@@ -217,7 +218,7 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="flex-1 rounded-lg bg-primary py-2 text-center text-sm font-medium text-primary-foreground"
               >
-                免费开始
+                开始变现
               </Link>
             </div>
           )}

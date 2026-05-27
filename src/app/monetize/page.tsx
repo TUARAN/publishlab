@@ -3,10 +3,6 @@
 import { motion } from "framer-motion";
 import {
   Sparkles,
-  Target,
-  Workflow,
-  Megaphone,
-  CalendarRange,
   Gauge,
   ArrowRight,
   Gift,
@@ -19,7 +15,6 @@ import {
   Image as ImageIcon,
   LayoutTemplate,
   Share2,
-  CheckCircle2,
   ShoppingBag,
   Users,
   Repeat,
@@ -234,6 +229,9 @@ export default function MonetizePage() {
             从选题到分发的结构化 SOP — 4 层产品矩阵、6 步生产流水线、4 周启动节奏。
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button href="/dashboard/new" variant="secondary" size="lg">
+              立即创建第一本小册
+            </Button>
             <Button href="/signup" size="lg">
               开始变现 <ArrowRight size={16} />
             </Button>
@@ -305,7 +303,7 @@ export default function MonetizePage() {
         >
           {pipeline.map((step) => (
             <motion.div key={step.num} variants={fadeUp}>
-              <Card className="h-full">
+              <Card className="h-full" id={step.num === 1 ? "step-1" : undefined}>
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-lg font-bold text-white">
                     {step.num}
@@ -427,7 +425,7 @@ export default function MonetizePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button href="/signup" size="lg" className="bg-white text-pink-600 hover:bg-white/90">
-              免费开始 <ArrowRight size={16} />
+              开始变现 <ArrowRight size={16} />
             </Button>
             <Button
               href="#pipeline"

@@ -37,7 +37,7 @@ export function Footer() {
               <span>PublishLab</span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
-              AI 驱动的写作、内容创作与数字出版平台
+              写作变现平台：从选题、写作到发布和成交，一站跑通
             </p>
           </div>
 
