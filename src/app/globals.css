@@ -1,26 +1,292 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Geist Sans";
+  src: url("/fonts/GeistVF.woff") format("woff");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVF.woff") format("woff");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
+  --card: #ffffff;
+  --card-foreground: #1a1a2e;
+  --muted: #f7fafc;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --primary: #6c5ce7;
+  --primary-light: #a29bfe;
+  --primary-dark: #4834d4;
+  --primary-foreground: #ffffff;
+  --secondary: #00b894;
+  --accent: #fd79a8;
+  --success: #00b894;
+  --warning: #fdcb6e;
+  --error: #e17055;
+  --info: #74b9ff;
+  --ring: #6c5ce7;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #1a1a2e;
+  --foreground: #f7fafc;
+  --card: #2d3748;
+  --card-foreground: #f7fafc;
+  --muted: #16213e;
+  --muted-foreground: #cbd5e0;
+  --border: #4a5568;
+  --primary: #a29bfe;
+  --primary-light: #c4b5fd;
+  --primary-dark: #6c5ce7;
+  --primary-foreground: #1a1a2e;
+  --ring: #a29bfe;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --font-sans: "Geist Sans", system-ui, sans-serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Geist Sans", system-ui, sans-serif;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Print styles — clean PDF export
+   Goal: always render as a light, content-first document,
+   regardless of theme, framer-motion state, or hero gradients.
+   ───────────────────────────────────────────────────────────── */
+@media print {
+  /* 1. Force light theme + override every CSS variable so dark mode
+        users still get a readable PDF. */
+  :root,
+  .dark {
+    --background: #ffffff !important;
+    --foreground: #111111 !important;
+    --card: #ffffff !important;
+    --card-foreground: #111111 !important;
+    --muted: #f4f4f5 !important;
+    --muted-foreground: #4b5563 !important;
+    --border: #d1d5db !important;
+    --primary: #4338ca !important;
+    --primary-light: #6366f1 !important;
+    --primary-dark: #312e81 !important;
+    --primary-foreground: #ffffff !important;
+    --secondary: #047857 !important;
+    --accent: #be185d !important;
+    --ring: #4338ca !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* 2. Strip site chrome. */
+  header,
+  footer,
+  nav,
+  [data-print-hide],
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* 3. Kill framer-motion's "hidden" state so off-viewport blocks
+        actually show up in the PDF. */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 4. Sections / hero — remove tinted backgrounds and shrink padding. */
+  section,
+  .bg-muted {
+    background: #ffffff !important;
+    padding-top: 12pt !important;
+    padding-bottom: 12pt !important;
+    page-break-inside: auto;
+  }
+  section > div {
+    max-width: 100% !important;
+  }
+
+  /* 5. Cards — keep light border, drop shadows, allow internal break
+        so long cards don't get clipped. */
+  .shadow-sm,
+  .shadow,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+  .rounded-xl,
+  .rounded-2xl {
+    border: 1px solid #d1d5db !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+  }
+
+  /* 6. Gradient backgrounds (heros / CTA banners / pill chips) → white. */
+  [class*="bg-gradient"] {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111111 !important;
+  }
+
+  /* 7. Gradient TEXT (bg-clip-text + text-transparent) → solid black,
+        otherwise it prints invisible. */
+  .bg-clip-text {
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    -webkit-text-fill-color: #111111 !important;
+    color: #111111 !important;
+    background: none !important;
+  }
+
+  /* 8. Force every Tailwind text-* class to a printable dark color,
+        unless it's specifically a card with a colored fill (handled below). */
+  body,
+  body * {
+    color: #111111 !important;
+  }
+  .text-muted-foreground,
+  [class*="text-muted"] {
+    color: #4b5563 !important;
+  }
+
+  /* 9. White-text-on-color blocks (CTA banners, badges with gradient bg)
+        now have white text on white bg — make them readable. We already
+        flipped the gradient bg to white, so flip text to dark too. */
+  .text-white {
+    color: #111111 !important;
+  }
+
+  /* 10. Tables — keep on one page row by row. */
+  table {
+    page-break-inside: auto;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  td,
+  th {
+    page-break-inside: avoid;
+  }
+  th,
+  td {
+    border-bottom: 1px solid #d1d5db !important;
+  }
+
+  /* 11. Bars in the Juejin chart / channel chart still need a visible
+        fill. Target only elements that opted in via inline width AND
+        carry a Tailwind gradient class. */
+  [style*="width:"][class*="bg-gradient"] {
+    background: #4338ca !important;
+    background-image: linear-gradient(to right, #4338ca, #047857) !important;
+    color: #ffffff !important;
+  }
+  [style*="width:"][class*="bg-gradient"] * {
+    color: #ffffff !important;
+  }
+
+  /* 12. Tighter heading sizes for print. */
+  h1 { font-size: 22pt !important; margin: 0 0 6pt !important; }
+  h2 { font-size: 16pt !important; margin: 10pt 0 4pt !important; }
+  h3 { font-size: 12pt !important; margin: 6pt 0 3pt !important; }
+
+  /* 13. Encourage clean breaks before each top-level section. */
+  section[id] {
+    page-break-before: auto;
+  }
+
+  /* 14. Show absolute URLs after links for citation, but only the
+        Sources list — avoid cluttering inline buttons. */
+  #sources a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #6b7280;
+    word-break: break-all;
+  }
+
+  /* 15. SVG icons (lucide-react): keep them but force dark stroke so
+        they're visible after we flipped all gradient containers to white. */
+  svg {
+    color: #111111 !important;
+  }
+  /* Icons sitting inside the bar-chart bars stay white (rule 11 handles them). */
+
+  /* 16. Make sure colors actually print (not rendered as light gray). */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }
