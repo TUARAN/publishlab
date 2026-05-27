@@ -94,7 +94,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Button href={plan.href} className="mt-6 w-full" variant={plan.featured ? "default" : "secondary"}>
+              <Button href={plan.href} className="mt-6 w-full" variant={plan.featured ? "primary" : "secondary"}>
                 {plan.cta} <ArrowRight size={16} />
               </Button>
             </Card>

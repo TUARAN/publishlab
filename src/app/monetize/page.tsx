@@ -302,8 +302,8 @@ export default function MonetizePage() {
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {pipeline.map((step) => (
-            <motion.div key={step.num} variants={fadeUp}>
-              <Card className="h-full" id={step.num === 1 ? "step-1" : undefined}>
+            <motion.div key={step.num} variants={fadeUp} id={step.num === 1 ? "step-1" : undefined}>
+              <Card className="h-full">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent text-lg font-bold text-white">
                     {step.num}
